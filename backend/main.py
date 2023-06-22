@@ -10,6 +10,8 @@ from fastapi.middleware.cors import CORSMiddleware
 import openai
 
 #custom Function Imports
+from functions.openai_requests import convert_audio_to_text
+
 
 #Initiate App
 app = FastAPI()
@@ -38,8 +40,24 @@ app.add_middleware(
 async def check_health():
     return {"message": "healthy"}
 
+
+#Get audio
+
+@app.get ("/post-audio-get/")
+async def get_audio ():
+   
+   #Get saved audio 
+   audio_input = open("voice.mp3", "rb") 
+
+   # Decode Audio 
+   message_decoded = convert_audio_to_text (audio_input)
+
+   print (message_decoded)
+
+   return "Done"
+
+
+
+
 #Post bot response 
 # Note: Not playning in browser when using post request 
-# @app.post ("/post-audio/")
-# async def post_audio (file:UploadFile=File(...)):
-#     print("hello")
