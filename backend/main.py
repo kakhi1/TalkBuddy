@@ -8,12 +8,24 @@ from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 import openai
+import subprocess
 
 #custom Function Imports
 from functions.database import store_messages, reset_messages
 from functions.openai_requests import convert_audio_to_text, get_chat_response
 from functions.text_to_speech import convert_text_to_speech
 
+# Check if 'fastapi' module is installed
+try:
+    import fastapi
+except ImportError:
+    # Install 'fastapi' module using pip
+    subprocess.check_call(["pip", "install", "fastapi"])
+
+# Continue with your remaining code
+from fastapi import FastAPI, File, UploadFile, HTTPException
+
+# Rest of your code...
 
 #Initiate App
 app = FastAPI()
