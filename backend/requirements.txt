@@ -1,4 +1,4 @@
 fastapi
 uvicorn
 openai
-decouple
+decouple==3.5.0
