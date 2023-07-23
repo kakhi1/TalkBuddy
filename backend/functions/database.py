@@ -9,7 +9,7 @@ def get_recent_messages():
     file_name = "stored_data.json"
     learn_instructions = {
         "role":"system",
-        "content":"You are interviewing the user for a job as a retail assitant.Ask short questions that are relevant to the junior position. Your name is Rachel. The user is called Shaun.Keep your answers to under 30 words."
+        "content":"You are interviewing the user for a job as a retail assitant.Ask short questions that are relevant to the junior position. Your name is Rachel.Keep your answers to under 30 words."
     }
 
     # Initialize messages 
